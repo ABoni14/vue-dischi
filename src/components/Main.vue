@@ -1,27 +1,35 @@
 <template>
   <main>
-    <div class="container main-container">
+    <div 
+      v-if="loading"
+      class="container main-container">
       <ProductBox 
         v-for="(album, index) in albums"
         :key="index"
         :albums="album"/>
     </div>
+
+    <Loading 
+      v-else LoadingTitle="Albums Spotify loading..." />
   </main>
 </template>
 
 <script>
 import axios from "axios";
 import ProductBox from "./ProductBox.vue";
+import Loading from "./Loading.vue";
 
 export default {
   name: "Main",
   components: {
-    ProductBox
+    ProductBox,
+    Loading
   },
   data(){
     return{
       albums: [],
-      apiUrl: "https://flynn.boolean.careers/exercises/api/array/music"
+      apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
+      loading: true
     }
   },
   methods:{
@@ -29,6 +37,7 @@ export default {
       axios.get(this.apiUrl)
         .then( r => {
           this.albums = r.data.response;
+          this.loading = true
         })
         .catch( e => {
           console.log(e);
