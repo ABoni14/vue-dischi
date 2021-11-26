@@ -1,5 +1,12 @@
+// @import "~@fontsource/roboto/400";
+// @import "~@fontsource/roboto/700";
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  font-family: "Roboto", sans-serif ;
 }
