@@ -37,7 +37,7 @@ export default {
       axios.get(this.apiUrl)
         .then( r => {
           this.albums = r.data.response;
-          this.loading = false
+          this.loading = true
         })
         .catch( e => {
           console.log(e);
