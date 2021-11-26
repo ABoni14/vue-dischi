@@ -54,7 +54,7 @@ export default {
 @import "../assets/style/vars.scss";
 
 main{
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   background-color: $secondary-color;
   .main-container{
     display: flex;

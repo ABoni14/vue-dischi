@@ -31,6 +31,7 @@ export default {
     margin-bottom: 15px;
   }
   h3{
+    font-size: 20px;
     color: white;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -38,6 +39,7 @@ export default {
   h5{
     font-size: 15px;
     color: grey;
+    font-weight: 400;
   }
 }
 </style>

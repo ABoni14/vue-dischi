@@ -21,6 +21,7 @@ header{
   img{
     height: 70px;
     margin-left: 20px;
+    cursor: pointer;
   }
 }
 
