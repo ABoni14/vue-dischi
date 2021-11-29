@@ -27,7 +27,16 @@ export default {
     checkSearch(genre){
       this.selectToGenre = genre;
       console.log(genre);
-    }
+      return this.$emit("genreSel", this.selectToGenre);
+    },
+
+    // pushGenre(){
+    //   this.$emit("genreSel", this.checkSearch)
+    // }
+  },
+
+  computed:{
+    
   }
 }
 </script>

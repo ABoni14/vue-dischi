@@ -6,7 +6,9 @@
       <ProductBox 
         v-for="(album, index) in albums"
         :key="index"
-        :albums="album"/>
+        :albums="album"
+        :genre="genre"
+        />
     </div>
 
     <Loading 
@@ -28,6 +30,7 @@ export default {
   data(){
     return{
       albums: [],
+      genre: "",
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       loading: true
     }
@@ -42,8 +45,15 @@ export default {
         .catch( e => {
           console.log(e);
         })
+    },
+
+    returnGenre(genre){
+      this.genre = genre;
+      console.log("Sono dentro Main", genre);
     }
+
   },
+
   mounted(){
     this.getApi();
   }

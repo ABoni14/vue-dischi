@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Header />
+    <Header
+      @genreSel="getGenre"
+     />
     <Main />
   </div>
 </template>
@@ -14,6 +16,23 @@ export default {
   components: {
     Header,
     Main
+  },
+
+  data(){
+    return{
+      genreSelected: ""
+    }
+  },
+
+  methods:{
+    getGenre(genre){
+      this.genreSelected = genre;
+      console.log("Sono in VUE APP", genre);
+    }
+  },
+
+  props:{
+    genre: String
   }
 }
 </script>
