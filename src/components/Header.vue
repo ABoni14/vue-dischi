@@ -1,12 +1,34 @@
 <template>
   <header>
     <img src="../assets/img/logo-small.svg" alt="">
+    <Select 
+      @genre="checkSearch"
+    />
   </header>
 </template>
 
 <script>
+import Select from "./Select.vue";
+
 export default {
-  name: "Header"
+  name: "Header",
+
+  data(){
+    return{
+      selectToGenre: ""
+    }
+  },
+
+  components: {
+    Select
+  },
+
+  methods: {
+    checkSearch(genre){
+      this.selectToGenre = genre;
+      console.log(genre);
+    }
+  }
 }
 </script>
 
@@ -18,11 +40,11 @@ header{
   height: 100px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
   img{
     height: 70px;
-    margin-left: 20px;
     cursor: pointer;
   }
 }
-
 </style>
