@@ -4,10 +4,9 @@
       v-if="loading"
       class="container main-container">
       <ProductBox 
-        v-for="(album, index) in albums"
+        v-for="(album, index) in genreFilter"
         :key="index"
         :albums="album"
-        :genre="genre"
         />
     </div>
 
@@ -35,27 +34,43 @@ export default {
       loading: true
     }
   },
+
+  props:{
+    genreSelectet: String
+  },
+
   methods:{
     getApi(){
       axios.get(this.apiUrl)
         .then( r => {
           this.albums = r.data.response;
-          this.loading = true
+          this.loading = true;
+          console.log("prova",this.genreSelectet);
         })
         .catch( e => {
           console.log(e);
         })
     },
-
-    returnGenre(genre){
-      this.genre = genre;
-      console.log("Sono dentro Main", genre);
-    }
-
   },
 
   mounted(){
     this.getApi();
+  },
+
+  computed:{
+    genreFilter(){
+      if(this.genreSelectet === ""){
+        return this.albums
+      } else{
+        let albumFilter = [];
+        for(let i = 0; i < this.albums.length - 1; i++){
+          if(this.albums[i].genre.toUpperCase().includes(this.genreSelectet.toUpperCase())){
+            albumFilter.push(this.albums[i])
+          }
+        }
+        return albumFilter
+      }
+    }
   }
 }
 </script>

@@ -3,7 +3,9 @@
     <Header
       @genreSel="getGenre"
      />
-    <Main />
+    <Main 
+      :genreSelectet="genreSelected"
+    />
   </div>
 </template>
 
@@ -27,13 +29,11 @@ export default {
   methods:{
     getGenre(genre){
       this.genreSelected = genre;
-      console.log("Sono in VUE APP", genre);
+      console.log("Sono in VUE APP", this.genreSelected);
     }
   },
 
-  props:{
-    genre: String
-  }
+  
 }
 </script>
 

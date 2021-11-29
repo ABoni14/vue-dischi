@@ -4,10 +4,10 @@
       v-model="genre"
       @change="$emit('genre', select)"
       name="" id="">
-      <option value="Rock">Rock</option>
-      <option value="Pop">Pop</option>
-      <option value="Jazz">Jazz</option>
-      <option value="Metal">Metal</option>
+      <option selected>Rock</option>
+      <option >Pop</option>
+      <option >Jazz</option>
+      <option >Metal</option>
     </select>
   </div>
 </template>
