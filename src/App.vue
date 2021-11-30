@@ -2,9 +2,11 @@
   <div>
     <Header
       @genreSel="getGenre"
-     />
+      :genreList="genre"
+    />
     <Main 
       :genreSelectet="genreSelected"
+      @genreToPush="genreForHeader"
     />
   </div>
 </template>
@@ -22,7 +24,8 @@ export default {
 
   data(){
     return{
-      genreSelected: ""
+      genreSelected: "",
+      genre: []
     }
   },
 
@@ -30,6 +33,11 @@ export default {
     getGenre(genre){
       this.genreSelected = genre;
       console.log("Sono in VUE APP", this.genreSelected);
+    },
+
+    genreForHeader(genre){
+      this.genre = genre;
+      console.log("provaApp", this.genre);
     }
   },
 

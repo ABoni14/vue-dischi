@@ -3,6 +3,7 @@
     <img src="../assets/img/logo-small.svg" alt="">
     <Select 
       @genre="checkSearch"
+      :genreToSelect="genreList"
     />
   </header>
 </template>
@@ -15,8 +16,12 @@ export default {
 
   data(){
     return{
-      selectToGenre: ""
+      selectToGenre: "",
     }
+  },
+
+  props:{
+    genreList: Array
   },
 
   components: {
@@ -30,13 +35,10 @@ export default {
       return this.$emit("genreSel", this.selectToGenre);
     },
 
-    // pushGenre(){
-    //   this.$emit("genreSel", this.checkSearch)
-    // }
-  },
-
-  computed:{
-    
+    genreToSelected(genre){
+      this.genreList = genre;
+      console.log("prova Header",this.genreList);
+    }
   }
 }
 </script>
