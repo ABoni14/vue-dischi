@@ -32,7 +32,7 @@ export default {
       genre: "",
       genresToPush: [],
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
-      loading: true
+      loading: false
     }
   },
 
